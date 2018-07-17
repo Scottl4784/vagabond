@@ -8,8 +8,9 @@
 
 
 
-
+Review.destroy_all
 City.destroy_all
+User.destroy_all
 
 atlanta = City.new
 atlanta.name = "Atlanta"
@@ -30,4 +31,8 @@ sanfran = City.new
 sanfran.name = "San Francisco"
 sanfran.image ="https://amp.businessinsider.com/images/55f6e585bd86ef20008ba163-1920-960.jpg"
 sanfran.save
+
+User.create(name: "Mike", email_id: "mike@12.com")
+
+Review.create(title: "Hotlanta", author: User.first.name, city_id: City.first.id, user_id: User.first.id)
 
