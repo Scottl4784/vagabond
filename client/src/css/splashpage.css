@@ -1,0 +1,82 @@
+.App {
+  align-content: center;
+}
+
+.city-images {
+  height: 94vh;
+  width: 100%;
+  background-image: url(../images/atl3.jpg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin: 0 10rem;
+  animation: fadeIn 2s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.splash-title {
+  font-size: 4em;
+}
+
+.splash-subtitle {
+  font-size: 2em;
+}
+
+.city-pictures {
+  margin: 15px;
+  display: flex;
+  justify-content: space-around;
+  flex: wrap;
+  overflow-x: scroll;
+}
+
+.atlanta {
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 400px;
+  height: 300px;
+  text-align: center;
+  margin: 0 auto;
+  background-image: url(../images/atl2.jpg);
+}
+
+.sf {
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 400px;
+  height: 300px;
+  text-align: center;
+  margin: 0 auto;
+  background-image: url(../images/sf1.jpg)
+}
+
+.ny {
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 400px;
+  height: 300px;
+  text-align: center;
+  margin: 0 auto;
+  background-image: url(../images/ny1.jpg)
+}
+
+.chicago {
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 400px;
+  height: 300px;
+  text-align: center;
+  margin: 0 auto;
+  background-image: url(../images/chi1.jpg)
+}
