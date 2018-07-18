@@ -15,7 +15,7 @@ class App extends Component {
       <Navbar /> 
       <Router>
         <Switch>
-          <Route exact path="/" component={Splashpage} />
+          {/* <Route exact path="/" component={Splashpage} /> */}
           <Profile />
         </Switch>
       </Router>
