@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "name": "vagabondproject",
+=======
+  "name": "vagabond_project",
+>>>>>>> b2873252fc7279f75095b6995e69d69025d84635
   "engines": {
     "node": "9.9.0"
   },
@@ -7,5 +11,9 @@
     "build": "cd client && npm install && npm run build && cd ..",
     "deploy": "cp -a client/build/. public/",
     "postinstall": "npm run build && npm run deploy && echo 'Client built!'"
+  },
+  "dependencies": {
+    "react-router": "^4.3.1",
+    "react-router-dom": "^4.3.1"
   }
 }
