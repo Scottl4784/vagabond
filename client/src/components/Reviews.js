@@ -1,54 +1,144 @@
-import React, { Component } from 'react'
-import axios from 'axios'
-import NewReviewForm from './NewReviewForm';
+import React, { Component } from "react";
+import axios from "axios";
+import NewReviewForm from "./NewReviewForm";
+import { Image, Header, Card, Button } from "semantic-ui-react";
 
 class Reviews extends Component {
-    state = {
-        city: [],
-        reviews: []
-    }
+  state = {
+    city: [],
+    reviews: []
+  };
 
-    newReview = (review) => {
-        const newReview = [...this.state.reviews]
-        newReview.push(review)
-        this.setState({ reviews: newReview })
-    }
+  newReview = review => {
+    const newReview = [...this.state.reviews];
+    newReview.push(review);
+    this.setState({ reviews: newReview });
+  };
 
-    getCityAndReviews = async () => {
-        const cityId = this.props.match.params.cityId
-        try {
-            let city = await axios.get(`/api/cities/${cityId}`)
-            let reviews = await axios.get(`/api/cities/${cityId}/reviews`)
+  getCityAndReviews = async () => {
+    const cityId = this.props.match.params.cityId;
+    try {
+      let cities = await axios.get(`/api/cities/${cityId}`);
+      let reviews = await axios.get(`/api/cities/${cityId}/reviews`);
 
-            this.setState({
-                city: city.data,
-                reviews: reviews.data
-            })
-            console.log(this.state)
-        } catch (err) {
-            console.error(err)
-        }
+      this.setState({
+        city: cities.data,
+        reviews: reviews.data
+      });
+      console.log(this.state);
+    } catch (err) {
+      console.error(err);
     }
-    componentDidMount() {
-        this.getCityAndReviews()
-    }
-    render() {
-        const reviewsList = this.state.reviews.map((review) => {
-            return (
-                <div key={review.id}>
-                    <h1>Review: {review.title}</h1>
-                    <p>{review.author}</p>
-                    <p>Comment aiobffbjkfblfnaklfnklfsnilfanlkfnaklfsn{review.comment}</p>
-                </div>
-            )
-        })
-        return (
-            <div>
-                {reviewsList}
-                <NewReviewForm newReview={this.newReview} {...this.props} />
-            </div>
-        );
-    }
+  };
+  componentDidMount() {
+    this.getCityAndReviews();
+  }
+  render() {
+    const reviewsList = this.state.reviews.map(review => {
+      return (
+        <div key={review.id}>
+          <div>
+            <Card.Group centered>
+              <Card>
+                <Card.Content href="#">
+                  <Header as="h1" color="teal">
+                    {review.title}
+                  </Header>
+                  <Image size="large" src="" />
+                  <Card.Meta>Sample Text</Card.Meta>
+                  <Card.Description>
+                    The <strong>Big Peach</strong>
+                  </Card.Description>
+                </Card.Content>
+                <Card.Content extra>
+                  <div className="ui two buttons">
+                    <Button basic color="green">
+                      Explore
+                    </Button>
+                    <Button basic color="yellow">
+                      Review
+                    </Button>
+                  </div>
+                </Card.Content>
+              </Card>
+              <Card>
+                <Card.Content href="#">
+                  <Header as="h1" color="teal">
+                    Chicago
+                  </Header>
+                  <Image size="large" src="" />
+                  <Card.Meta>Windy City</Card.Meta>
+                  <Card.Description>
+                    The <strong>Big Peach</strong>
+                  </Card.Description>
+                </Card.Content>
+                <Card.Content extra>
+                  <div className="ui two buttons">
+                    <Button basic color="green">
+                      Explore
+                    </Button>
+                    <Button basic color="yellow">
+                      Review
+                    </Button>
+                  </div>
+                </Card.Content>
+              </Card>
+              <Card>
+                <Card.Content href="#">
+                  <Header as="h1" color="teal">
+                    New York
+                  </Header>
+                  <Image size="large" src="" />
+                  <Card.Meta>Windy City</Card.Meta>
+                  <Card.Description>
+                    The <strong>Big Peach</strong>
+                  </Card.Description>
+                </Card.Content>
+                <Card.Content extra>
+                  <div className="ui two buttons">
+                    <Button basic color="green">
+                      Explore
+                    </Button>
+                    <Button basic color="yellow">
+                      Review
+                    </Button>
+                  </div>
+                </Card.Content>
+              </Card>
+              <Card>
+                <Card.Content href="#">
+                  <Header as="h1" color="teal">
+                    Atlanta
+                  </Header>
+                  <Image size="large" src="" />
+                  <Card.Meta>Sample Text</Card.Meta>
+                  <Card.Description>
+                    The <strong>Big Peach</strong>
+                  </Card.Description>
+                </Card.Content>
+                <Card.Content extra>
+                  <div className="ui two buttons">
+                    <Button basic color="green">
+                      Explore
+                    </Button>
+                    <Button basic color="yellow">
+                      Review
+                    </Button>
+                  </div>
+                </Card.Content>
+              </Card>
+            </Card.Group>
+          </div>
+        </div>
+      );
+    });
+    return (
+      <div>
+        {reviewsList}
+        <NewReviewForm newReview={this.newReview} {...this.props} />
+      </div>
+    );
+  }
 }
 
 export default Reviews;
