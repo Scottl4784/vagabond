@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios'
-import Reviews from './Reviews';
 import NewReviewForm from './NewReviewForm';
 
 
@@ -40,9 +39,9 @@ class Cities extends Component {
         const reviewsList = this.state.reviews.map((review) => {
             return (
                 <div key={review.id}>
-                    <h1>Review{review.title}</h1>
+                    <h1>Review: {review.title}</h1>
                     <p>{review.author}</p>
-                    <p>sdbjkvbdjkbsjkdfbajkacjlakndlcnalkcnscnalksc {review.comment}</p>
+                    <p> {review.comment}</p>
                 </div>
             )
         })
@@ -51,7 +50,7 @@ class Cities extends Component {
             <div>
                 <h1>{this.state.city.name}</h1>
                 <img width={200} src={this.state.city.image} alt=""/>
-                <NewReviewForm/>
+                <NewReviewForm newReview={this.newReview} {...this.props}/>
                 {reviewsList}
             </div>
         );

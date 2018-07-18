@@ -13,14 +13,10 @@ class Navbar extends Component {
     return (
       <Router>
         <Menu pointing secondary>
-          <Link to='/'>
           <Menu.Item name='home' active={activeItem === 'home'} onClick={this.handleItemClick} />
-          </Link>
-          <Link to='/cities'>
           <Menu.Item
             name='Cities' active={activeItem === 'Cities'} onClick={this.handleItemClick}
           />
-          </Link>
           <Menu.Item
             name='friends' active={activeItem === 'friends'} onClick={this.handleItemClick}
           />

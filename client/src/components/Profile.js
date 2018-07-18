@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, Icon, Image, Button, Feed } from 'semantic-ui-react'
+import { Card, Icon, Image, Feed } from 'semantic-ui-react'
 
 const src1 ="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=99c6d2880c20cb72f29b5a9eba8ea898&auto=format&fit=crop&w=1350&q=80"
 const Profile = () => (

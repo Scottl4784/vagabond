@@ -22,7 +22,6 @@ class App extends Component {
             <Route exact path="/cities/:cityId" component={Cities} />
             <Route exact path="/cities/:cityId/reviews" component={Reviews} />
           </Switch>
-            {/* <Profile /> */}
         </Router>
       </div>
     );
