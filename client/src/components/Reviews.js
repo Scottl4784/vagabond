@@ -17,11 +17,11 @@ class Reviews extends Component {
     getCityAndReviews = async () => {
         const cityId = this.props.match.params.cityId
         try {
-            let cities = await axios.get(`/api/cities/${cityId}`)
+            let city = await axios.get(`/api/cities/${cityId}`)
             let reviews = await axios.get(`/api/cities/${cityId}/reviews`)
 
             this.setState({
-                city: cities.data,
+                city: city.data,
                 reviews: reviews.data
             })
             console.log(this.state)
@@ -36,7 +36,9 @@ class Reviews extends Component {
         const reviewsList = this.state.reviews.map((review) => {
             return (
                 <div key={review.id}>
-                    <h1>{review.title}</h1>
+                    <h1>Review: {review.title}</h1>
+                    <p>{review.author}</p>
+                    <p>Comment aiobffbjkfblfnaklfnklfsnilfanlkfnaklfsn{review.comment}</p>
                 </div>
             )
         })
