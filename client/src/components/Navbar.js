@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Menu, Segment } from 'semantic-ui-react'
+import {Link} from 'react-router-dom'
 
 class Navbar extends Component {
   state = { activeItem: 'home' }
@@ -12,10 +13,14 @@ class Navbar extends Component {
     return (
       <div>
         <Menu pointing secondary>
+          <Link to='/'>
           <Menu.Item name='home' active={activeItem === 'home'} onClick={this.handleItemClick} />
+          </Link>
+          <Link to='/cities'>
           <Menu.Item
             name='Cities' active={activeItem === 'Cities'} onClick={this.handleItemClick}
           />
+          </Link>
           <Menu.Item
             name='friends' active={activeItem === 'friends'} onClick={this.handleItemClick}
           />
