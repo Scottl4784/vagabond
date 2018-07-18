@@ -14,8 +14,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      <Navbar /> 
       <Router>
+        <Navbar /> 
+        </Router>
+        <Router>
         <Switch>
           <Route exact path="/" component={Splashpage} />
           <Route exact path="/cities" component={Cities} />
