@@ -1,35 +1,57 @@
 import React, { Component } from 'react';
 import axios from 'axios'
+import NewReviewForm from './NewReviewForm';
 
 
 
 class Cities extends Component {
     state = {
-        cities: []
+        city: [],
+        reviews: []
     }
 
-    getCities = () => {
-        axios.get('/api/cities').then((res) => {
-            this.setState({cities: res.data})
-            console.log(res.data)
-        })
+    getCityAndReviews = async () => {
+        const cityId = this.props.match.params.cityId
+        try {
+            let city = await axios.get(`/api/cities/${cityId}`)
+            let reviews = await axios.get(`/api/cities/${cityId}/reviews`)
+
+            this.setState({
+                city: city.data,
+                reviews: reviews.data
+            })
+            console.log(this.state)
+        } catch (err) {
+            console.error(err)
+        }
     }
     componentDidMount() {
-        this.getCities()
+        this.getCityAndReviews()
+    }
+
+    newReview = (review) => {
+        const newReview = [...this.state.reviews]
+        newReview.push(review)
+        this.setState({ reviews: newReview })
     }
 
     render() {
-        const citiesList = this.state.cities.map((city) => {
+        const reviewsList = this.state.reviews.map((review) => {
             return (
-                <div key={city.id}>
-                    <h1>{city.name}</h1>
+                <div key={review.id}>
+                    <h1>Review: {review.title}</h1>
+                    <p>{review.author}</p>
+                    <p> {review.comment}</p>
                 </div>
             )
         })
 
         return (
             <div>
-                {citiesList}
+                <h1>{this.state.city.name}</h1>
+                <img width={200} src={this.state.city.image} alt=""/>
+                <NewReviewForm newReview={this.newReview} {...this.props}/>
+                {reviewsList}
             </div>
         );
     }

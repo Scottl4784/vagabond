@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from '../logo.svg';
+import {Link} from 'react-router-dom'
 import '../css/splashpage.css';
 
 class Splashpage extends Component {
@@ -14,10 +14,10 @@ class Splashpage extends Component {
 
       
         <div className='city-pictures'>
-          <div className='atlanta'></div>
-          <div className='sf'></div>
-          <div className='chicago'></div>
-          <div className='ny'></div>
+          <Link to='/cities/1'><div className='atlanta'></div></Link>
+          <Link to='/cities/4'><div className='sf'></div></Link>
+          <Link to='/cities/2'><div className='chicago'></div></Link>
+          <Link to='/cities/3'><div className='ny'></div></Link>
         </div>
       </div>
     );
