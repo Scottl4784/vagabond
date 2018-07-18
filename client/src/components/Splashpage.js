@@ -7,11 +7,12 @@ class Splashpage extends Component {
     return (
       <div className="App">
         <div className='city-images'>
-          
+          {/* make this a slideshow of images */}
+          <h1>Welcome to The World's Greatest Travel Review Site</h1>
+          <h2>We all have a story to tell. </h2>
         </div>
-        <h1 className='splash-title'>Welcome to The World's Greatest Travel Review Site</h1>
-        <h2 className='splash-subtitle'>We all have a story to tell. </h2>
 
+      
         <div className='city-pictures'>
           <div className='atlanta'></div>
           <div className='sf'></div>
