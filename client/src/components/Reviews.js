@@ -45,88 +45,24 @@ class Reviews extends Component {
                     {review.title}
                   </Header>
                   <Image size="large" src="" />
-                  <Card.Meta>Sample Text</Card.Meta>
+                  <Card.Meta>{review.author}</Card.Meta>
                   <Card.Description>
-                    The <strong>Big Peach</strong>
+                    <h1>{review.comment}</h1>
                   </Card.Description>
                 </Card.Content>
                 <Card.Content extra>
                   <div className="ui two buttons">
                     <Button basic color="green">
-                      Explore
+                      Edit
                     </Button>
                     <Button basic color="yellow">
-                      Review
+                      Delete
                     </Button>
                   </div>
                 </Card.Content>
               </Card>
-              <Card>
-                <Card.Content href="#">
-                  <Header as="h1" color="teal">
-                    Chicago
-                  </Header>
-                  <Image size="large" src="" />
-                  <Card.Meta>Windy City</Card.Meta>
-                  <Card.Description>
-                    The <strong>Big Peach</strong>
-                  </Card.Description>
-                </Card.Content>
-                <Card.Content extra>
-                  <div className="ui two buttons">
-                    <Button basic color="green">
-                      Explore
-                    </Button>
-                    <Button basic color="yellow">
-                      Review
-                    </Button>
-                  </div>
-                </Card.Content>
-              </Card>
-              <Card>
-                <Card.Content href="#">
-                  <Header as="h1" color="teal">
-                    New York
-                  </Header>
-                  <Image size="large" src="" />
-                  <Card.Meta>Windy City</Card.Meta>
-                  <Card.Description>
-                    The <strong>Big Peach</strong>
-                  </Card.Description>
-                </Card.Content>
-                <Card.Content extra>
-                  <div className="ui two buttons">
-                    <Button basic color="green">
-                      Explore
-                    </Button>
-                    <Button basic color="yellow">
-                      Review
-                    </Button>
-                  </div>
-                </Card.Content>
-              </Card>
-              <Card>
-                <Card.Content href="#">
-                  <Header as="h1" color="teal">
-                    Atlanta
-                  </Header>
-                  <Image size="large" src="" />
-                  <Card.Meta>Sample Text</Card.Meta>
-                  <Card.Description>
-                    The <strong>Big Peach</strong>
-                  </Card.Description>
-                </Card.Content>
-                <Card.Content extra>
-                  <div className="ui two buttons">
-                    <Button basic color="green">
-                      Explore
-                    </Button>
-                    <Button basic color="yellow">
-                      Review
-                    </Button>
-                  </div>
-                </Card.Content>
-              </Card>
+              
+              
             </Card.Group>
           </div>
         </div>
