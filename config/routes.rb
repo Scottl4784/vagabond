@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root :to => "home#index"
+  root :to => "/" render html: "Hello"
   namespace :api do
     resources :users
     resources :cities do
