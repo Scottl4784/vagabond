@@ -6,7 +6,8 @@ import { Link, Switch, BrowserRouter as Router, Route } from 'react-router-dom'
 import Splashpage from './components/Splashpage'
 import Navbar from './components/Navbar'
 import 'semantic-ui-css/semantic.min.css'
-import Profile from "./components/Profile";
+import Createaccount from "./components/Createaccount";
+import Profile from './components/Profile';
 
 class App extends Component {
   render() {
@@ -16,7 +17,8 @@ class App extends Component {
       <Router>
         <Switch>
           <Route exact path="/" component={Splashpage} />
-          <Profile />
+          <Createaccount />
+          {/* <Profile /> */}
         </Switch>
       </Router>
       </div>
