@@ -7,6 +7,8 @@ import Splashpage from './components/Splashpage'
 import Navbar from './components/Navbar'
 import 'semantic-ui-css/semantic.min.css'
 import Profile from "./components/Profile";
+import Cities from './components/Cities';
+import Reviews from './components/Reviews';
 
 class App extends Component {
   render() {
@@ -15,7 +17,9 @@ class App extends Component {
       <Navbar /> 
       <Router>
         <Switch>
-          <Route path="/" component={Splashpage} />
+          <Route exact path="/" component={Splashpage} />
+          <Route exact path="/cities" component={Cities} />
+          <Route exact path="/cities/:cityId/reviews" component={Reviews} />
           <Profile />
         </Switch>
       </Router>
