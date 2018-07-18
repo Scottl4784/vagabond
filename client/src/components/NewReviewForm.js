@@ -8,6 +8,8 @@ class NewReviewForm extends Component {
     handleChange = (event) => {
         const inputName = event.target.name
         const userInput = event.target.value
+        console.log(userInput)
+        console.log(this.state)
         this.setState({
             [inputName]: userInput
         })
@@ -16,8 +18,9 @@ class NewReviewForm extends Component {
     handleSubmit = (event) => {
         event.preventDefault()
         const cityId = this.props.match.params.cityId
-        axios.post(`/api/cities/${cityId}/reviews`, this.state).then((res) => {
-            this.props.newReview(res.data.user)
+        axios.post(`/api/cities/${cityId}`, this.state).then((res) => {
+            this.props.newReview(res.data)
+            console.log(res.data)
             console.log(this.state)
         })
     }
@@ -43,7 +46,7 @@ class NewReviewForm extends Component {
                         name="comment"
                         onChange={this.handleChange}
                     />
-                    <button onClick={this.handleSubmit}>Create</button>                
+                    <button onClick={this.handleSubmit}>Post New Review</button>                
             </div>
         );
     }

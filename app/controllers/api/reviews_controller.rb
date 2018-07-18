@@ -6,7 +6,7 @@ class Api::ReviewsController < ApplicationController
     
     def create
         @city = City.find(params[:city_id])
-        @review = Review.create!(review_params)
+        @review = @city.reviews.create!(review_params)
         render json: @review
     end
     
