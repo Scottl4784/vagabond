@@ -30,21 +30,19 @@ class Reviews extends Component {
   }
   render() {
     return (
-      <div>
-       <h1>{this.state.review.title}</h1>
-       <p>{this.state.review.author}</p>
-       <p>{this.state.review.comment}</p>    
-      <div>
-      <Card>
+      <div>  
+ 
+      <div className='card-div'>
+      <Card centered raised color='teal'>
         <Card.Content header= {this.state.review.title}  />
-        <Card.Content description= {this.state.review.comment}/>
+        <Card.Content content= {this.state.review.comment}/>
         <Card.Content extra>
         {this.state.review.author}
         </Card.Content>
       </Card>
-       
+       </div>
       </div>
-      </div>
+
     )
   }
 }
