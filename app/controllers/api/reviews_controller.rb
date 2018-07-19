@@ -11,7 +11,7 @@ class Api::ReviewsController < ApplicationController
     end
     
     def show
-        @review = City.find(params[:city_id]).reviews 
+        @review = City.find(params[:city_id]).reviews.find(params[:id]) 
         render json: @review
     end
     

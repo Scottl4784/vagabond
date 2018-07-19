@@ -25,19 +25,11 @@ class Reviews extends Component {
     this.getReview()
   }
   render() {
-    const review = this.state.review.map((review) => {
-      return (
-        <div key={review.id}>
-        <h1>{review.title}</h1>
-        <p>{review.author}</p>
-        <p>{review.comment}</p>
-        </div>
-      )
-    })
     return (
       <div>
-        {review}
-        
+       <h1>{this.state.review.title}</h1>
+       <p>{this.state.review.author}</p>
+       <p>{this.state.review.comment}</p>    
       </div>
     )
   }
