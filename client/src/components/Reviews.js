@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import NewReviewForm from "./NewReviewForm";
-import { Image, Header, Card, Button } from "semantic-ui-react";
+import { Reveal, Header, Card, Button } from "semantic-ui-react";
 
 class Reviews extends Component {
   state = {
@@ -40,14 +40,20 @@ class Reviews extends Component {
           <div>
             <Card.Group centered>
               <Card>
-                <Card.Content href="#">
+                <Card.Content>
                   <Header as="h1" color="teal">
                     {review.title}
                   </Header>
-                  <Image size="large" src="" />
-                  <Card.Meta>{review.author}</Card.Meta>
+
+                  <Card.Meta>
+                    <Header as="h2" color="black">
+                      {review.author}
+                    </Header>
+                  </Card.Meta>
                   <Card.Description>
-                    <h1>{review.comment}</h1>
+                    <Header as="h4" color="black">
+                      {review.comment}
+                    </Header>
                   </Card.Description>
                 </Card.Content>
                 <Card.Content extra>
@@ -55,14 +61,18 @@ class Reviews extends Component {
                     <Button basic color="green">
                       Edit
                     </Button>
-                    <Button basic color="yellow">
+                    <Button
+                      onClick={() => {
+                        this.deleteReview(review.id);
+                      }}
+                      basic
+                      color="yellow"
+                    >
                       Delete
                     </Button>
                   </div>
                 </Card.Content>
               </Card>
-              
-              
             </Card.Group>
           </div>
         </div>
