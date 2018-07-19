@@ -29,7 +29,7 @@ newyork.save
 
 sanfran = City.new
 sanfran.name = "San Francisco"
-sanfran.image ="https://amp.businessinsider.com/images/55f6e585bd86ef20008ba163-1920-960.jpg"
+sanfran.image ="https://raw.githubusercontent.com/Scottl4784/vagabond/vagabond/release1.0.1/client/src/images/sanfran.jpg"
 sanfran.save
 
 User.create(name: "Mike", email_id: "mike@12.com")

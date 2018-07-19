@@ -1,40 +1,43 @@
 import React, { Component } from 'react'
 import { Menu, Segment } from 'semantic-ui-react'
-import {Link, BrowserRouter as Router} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 
 class Navbar extends Component {
-  state = { activeItem: 'Home', redirectToCities: false }
+  state = { 
+  activeItem: 'Home',
+  redirectToHome: false,
+  redirectToCities: false,
+  redirectToReviews: false,
+  redirectToLogin: false
+ }
 
   handleItemClick = (event, { name }) => {
     this.setState({ activeItem: name })
   }
-  takeMeToCitiesPage = () => {
-    this.setState({redirectToCities: true})
-  }
+
 
   render() {
     const { activeItem } = this.state
-    if (this.state.redirectToCities) {
-      return <Redirect to="/cities" />
-    }
+   
     console.log(window.location.pathname)
     return (
-      <Router>
+      <div>
         <Menu pointing secondary>
-          <Menu.Item name='home' active={activeItem === 'home'} onClick={this.handleItemClick} />
+          <Menu.Item as={Link} to="/" active link name='home' active={activeItem === 'home'} onClick={this.handleItemClick}  
+          />   
+          {/* <Menu.Item
+            name='Cities' active={activeItem === 'cities'} onClick={this.takeMeToCitiesPage}
+          />       
           <Menu.Item
-            name='Cities' active={activeItem === 'Cities'} onClick={this.takeMeToCitiesPage}
-          />
-          <Menu.Item
-            name='friends' active={activeItem === 'friends'} onClick={this.handleItemClick}
+            name='Reviews' active={activeItem === 'reviews'} onClick={this.takeMeReviewsPage}
           />
           <Menu.Menu position='right'>
             <Menu.Item
-              name='login' active={activeItem === 'login'} onClick={this.handleItemClick}
-            />
-          </Menu.Menu>
+              name='login' active={activeItem === 'login'} onClick={this.takeMeToLoginPage}
+            /> */}
+          {/* </Menu.Menu> */}
         </Menu>
-      </Router>
+      </div>
     )
   }
 }
