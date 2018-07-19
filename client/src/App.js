@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-// import logo from './logo.svg';
 import './App.css';
 // eslint-disable-next-line
-import { Link, Switch, BrowserRouter as Router, Route } from 'react-router-dom'
+import { Switch, BrowserRouter as Router, Route } from 'react-router-dom'
 import Splashpage from './components/Splashpage'
 import Navbar from './components/Navbar'
 import 'semantic-ui-css/semantic.min.css'
