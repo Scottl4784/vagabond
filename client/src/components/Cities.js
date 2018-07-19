@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios'
 import NewReviewForm from './NewReviewForm';
 import { Image, Header, Card, Button } from "semantic-ui-react";
-import styled from 'styled-components'
-
+import {Link} from 'react-router-dom'
 
 
 
@@ -48,6 +47,7 @@ class Cities extends Component {
 
     render() {
         const reviewsList = this.state.reviews.map((review) => {
+            const cityId = this.props.match.params.cityId
             return (
                 <div key={review.id}>
                     <div>
@@ -55,7 +55,7 @@ class Cities extends Component {
                             <Card>
                                 <Card.Content href="#">
                                     <Header as="h1" color="teal">
-                                        {review.title}
+                                        <Link to={`/cities/${cityId}/reviews/${review.id}`}>{review.title}</Link>
                                     </Header>
                                     <Image size="large" src="" />
                                     <Card.Meta>{review.author}</Card.Meta>

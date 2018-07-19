@@ -20,7 +20,7 @@ class App extends Component {
             <Route exact path="/" component={Splashpage} />
             <Route exact path="/cities" component={Splashpage} />
             <Route exact path="/cities/:cityId" component={Cities} />
-            <Route exact path="/cities/:cityId/reviews" component={Reviews} />
+            <Route exact path="/cities/:cityId/reviews/:reviewId" component={Reviews} />
           </Switch>
         </Router>
       </div>
