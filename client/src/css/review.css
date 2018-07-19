@@ -1,6 +1,7 @@
 .card-container{
   background-size: contain;
   height: 100vh;
-  width: auto;
-  background-image: url(../images/piedmontbg.jpg)
+
+  background-repeat: round;
+  background-image: url("https://livetherockies.net/wp-content/uploads/2016/05/City-Park.jpg")
 }
