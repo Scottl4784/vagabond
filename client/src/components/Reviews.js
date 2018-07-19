@@ -4,7 +4,8 @@ import axios from "axios"
 
 class Reviews extends Component {
   state = {
-    review: []
+    review: [],
+    editReview: true
   }
 
   getReview = async () => {
@@ -21,18 +22,45 @@ class Reviews extends Component {
       console.error(err)
     }
   }
+
   componentDidMount() {
     this.getReview()
   }
   render() {
     return (
       <div>
-       <h1>{this.state.review.title}</h1>
-       <p>{this.state.review.author}</p>
-       <p>{this.state.review.comment}</p>    
-      </div>
+        {this.state.editReview ?
+          <div>
+            <input
+              placeholder="Title"
+              type="text"
+              name="title"
+              onChange={this.handleChange}
+            />
+            <input
+              placeholder="Author"
+              type="text"
+              name="author"
+              onChange={this.handleChange}
+            />
+            <textarea
+              placeholder="Comment"
+              type="text"
+              name="comment"
+              onChange={this.handleChange}
+            />
+          <button onClick={this.handleSubmit}>Edit Review</button>
+          </div> 
+          :
+          <div>
+          <h1>{this.state.review.title}</h1>
+          <p>{this.state.review.author}</p>
+          <p>{this.state.review.comment}</p>
+          </div>
+        }
+          </div>
     )
-  }
-}
-
-export default Reviews
+      }
+    }
+    
+    export default Reviews
