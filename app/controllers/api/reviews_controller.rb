@@ -23,8 +23,9 @@ class Api::ReviewsController < ApplicationController
     end
     
     def destroy
-        @review = Review.find(params[:id]).delete  
-        render status: :ok
+        @review = Review.find(params[:id]).delete 
+        @reviews = Review.all
+        render json: @reviews
     end
     
     private
