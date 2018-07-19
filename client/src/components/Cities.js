@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios'
 import NewReviewForm from './NewReviewForm';
 import { Image, Header, Card, Button } from "semantic-ui-react";
+import styled from 'styled-components'
+
 
 
 
