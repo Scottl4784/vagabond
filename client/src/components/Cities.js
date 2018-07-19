@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios'
 import NewReviewForm from './NewReviewForm';
 import { Image, Header, Card, Button } from "semantic-ui-react";
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 
 
@@ -41,7 +41,7 @@ class Cities extends Component {
         const cityId = this.props.match.params.cityId
         axios.delete(`/api/cities/${cityId}/reviews/${reviewId}`).then((res) => {
             console.log(res)
-            this.setState({ reviews: res.data})
+            this.setState({ reviews: res.data })
         })
     }
 
@@ -67,10 +67,10 @@ class Cities extends Component {
                                     <div className="ui two buttons">
                                         <Button basic color="green">
                                             Edit
-                    </Button>
+                                        </Button>
                                         <Button onClick={() => { this.deleteReview(review.id) }} basic color="yellow">
                                             Delete
-                    </Button>
+                                        </Button>
                                     </div>
                                 </Card.Content>
                             </Card>
