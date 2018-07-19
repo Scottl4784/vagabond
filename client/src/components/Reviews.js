@@ -23,9 +23,6 @@ class Reviews extends Component {
     }
   }
 
-  toggleEditComment = () => {
-    this.setState({editReview: !editReview})
-  }
   componentDidMount() {
     this.getReview()
   }
