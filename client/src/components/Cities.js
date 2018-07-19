@@ -55,7 +55,7 @@ class Cities extends Component {
                             <Card>
                                 <Card.Content href="#">
                                     <Header as="h1" color="teal">
-                                        {review.title}
+                                        <Link to='{cities{review.title}
                                     </Header>
                                     <Image size="large" src="" />
                                     <Card.Meta>{review.author}</Card.Meta>
