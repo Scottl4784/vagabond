@@ -5,7 +5,7 @@ import axios from "axios"
 class Reviews extends Component {
   state = {
     review: [],
-    editReview: true
+    editReview: false
   }
 
   getReview = async () => {
@@ -23,9 +23,6 @@ class Reviews extends Component {
     }
   }
 
-  toggleEditComment = () => {
-    this.setState({editReview: !editReview})
-  }
   componentDidMount() {
     this.getReview()
   }
