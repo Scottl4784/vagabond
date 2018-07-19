@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import NewReviewForm from './NewReviewForm';
-import { Image, Header, Card, Button } from "semantic-ui-react";
+import { Confirm, Image, Header, Card, Button } from "semantic-ui-react";
 import styled from 'styled-components'
 
 
@@ -10,7 +10,8 @@ import styled from 'styled-components'
 class Cities extends Component {
   state = {
     city: [],
-    reviews: []
+    reviews: [],
+    open: false 
   };
 
   getCityAndReviews = async () => {
@@ -38,15 +39,15 @@ class Cities extends Component {
     this.setState({ reviews: newReview });
   };
 
-  deleteReview = reviewId => {
-    const cityId = this.props.match.params.cityId;
-    axios.delete(`/api/cities/${cityId}/reviews/${reviewId}`).then(res => {
-      const singleCity = res.data.cities.id(cityId);
-      this.setState({ reviews: singleCity.reviews });
-    });
-  };
+  deleteReview = (reviewId) => {
+    const cityId = this.props.match.params.cityId
+    axios.delete(`/api/cities/${cityId}/reviews/${reviewId}`).then((res) => {
+        console.log(res)
+        this.setState({ reviews: res.data})
+    })
+}
   // State for Button Confirmation
-  state = { open: false };
+
   open = () => this.setState({ open: true });
   close = () => this.setState({ open: false });
 
