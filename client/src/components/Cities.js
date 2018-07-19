@@ -45,40 +45,33 @@ class Cities extends Component {
         })
     }
 
-    render() {
-        const reviewsList = this.state.reviews.map((review) => {
+render() {
+    const reviewsList = this.state.reviews.map((review) => {
             const cityId = this.props.match.params.cityId
             return (
-                <div key={review.id}>
-                    <div>
-                        <Card.Group centered>
-                            <Card>
-                                <Card.Content href="#">
-                                    <Header as="h1" color="teal">
-                                        <Link to={`/cities/${cityId}/reviews/${review.id}`}>{review.title}</Link>
-                                    </Header>
-                                    <Image size="large" src="" />
-                                    <Card.Meta>{review.author}</Card.Meta>
-                                    <Card.Description>
-                                        <h1>{review.comment}</h1>
-                                    </Card.Description>
-                                </Card.Content>
-                                <Card.Content extra>
-                                    <div className="ui two buttons">
-                                        <Button basic color="green">
-                                            Edit
-                    </Button>
-                                        <Button onClick={() => { this.deleteReview(review.id) }} basic color="yellow">
-                                            Delete
-                    </Button>
-                                    </div>
-                                </Card.Content>
-                            </Card>
 
+    <div key={review.id}>
+    <div>
+    <Card.Group centered>
+        <Card>
+                <Card.Content href="#">
+                    <Header as="h1" color="teal">
+                        <Link to={`/cities/${cityId}/reviews/${review.id}`}>{review.title}</Link>
+                    </Header>
+                    <Image size="large" src="" />
+                    <Card.Meta>{review.author}</Card.Meta>
+                </Card.Content>
 
-                        </Card.Group>
-                    </div>
+            <Card.Content extra>
+                <div className="ui two buttons">
+                <Button basic color="green">Edit</Button>
+                <Button onClick={() => { this.deleteReview(review.id) }} basic color="yellow"> Delete </Button>
                 </div>
+            </Card.Content>
+        </Card>
+    </Card.Group>
+    </div>
+    </div>
             )
         })
 
