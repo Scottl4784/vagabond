@@ -1,80 +1,46 @@
-import React, { Component } from "react";
-import axios from "axios";
-import NewReviewForm from "./NewReviewForm";
-import { Image, Header, Card, Button } from "semantic-ui-react";
+import React, { Component } from "react"
+import axios from "axios"
+
 
 class Reviews extends Component {
   state = {
-    city: [],
-    reviews: []
-  };
+    review: []
+  }
 
-  newReview = review => {
-    const newReview = [...this.state.reviews];
-    newReview.push(review);
-    this.setState({ reviews: newReview });
-  };
-
-  getCityAndReviews = async () => {
-    const cityId = this.props.match.params.cityId;
+  getReview = async () => {
+    const cityId = this.props.match.params.cityId
+    const reviewId = this.props.match.params.reviewId
     try {
-      let cities = await axios.get(`/api/cities/${cityId}`);
-      let reviews = await axios.get(`/api/cities/${cityId}/reviews`);
+      let review = await axios.get(`/api/cities/${cityId}/reviews/${reviewId}`)
 
       this.setState({
-        city: cities.data,
-        reviews: reviews.data
-      });
-      console.log(this.state);
+        review: review.data
+      })
+      console.log(this.state)
     } catch (err) {
-      console.error(err);
+      console.error(err)
     }
-  };
+  }
   componentDidMount() {
-    this.getCityAndReviews();
+    this.getReview()
   }
   render() {
-    const reviewsList = this.state.reviews.map(review => {
+    const review = this.state.review.map((review) => {
       return (
         <div key={review.id}>
-          <div>
-            <Card.Group centered>
-              <Card>
-                <Card.Content href="#">
-                  <Header as="h1" color="teal">
-                    {review.title}
-                  </Header>
-                  <Image size="large" src="" />
-                  <Card.Meta>{review.author}</Card.Meta>
-                  <Card.Description>
-                    <h1>{review.comment}</h1>
-                  </Card.Description>
-                </Card.Content>
-                <Card.Content extra>
-                  <div className="ui two buttons">
-                    <Button basic color="green">
-                      Edit
-                    </Button>
-                    <Button basic color="yellow">
-                      Delete
-                    </Button>
-                  </div>
-                </Card.Content>
-              </Card>
-              
-              
-            </Card.Group>
-          </div>
+        <h1>{review.title}</h1>
+        <p>{review.author}</p>
+        <p>{review.comment}</p>
         </div>
-      );
-    });
+      )
+    })
     return (
       <div>
-        {reviewsList}
-        <NewReviewForm newReview={this.newReview} {...this.props} />
+        {review}
+        
       </div>
-    );
+    )
   }
 }
 
-export default Reviews;
+export default Reviews
