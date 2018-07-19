@@ -36,6 +36,14 @@ class Cities extends Component {
         this.setState({ reviews: newReview })
     }
 
+    deleteReview = (reviewId) => {
+        const cityId = this.props.match.params.cityId
+        axios.delete(`/api/cities/${cityId}/reviews/${reviewId}`).then((res) => {
+            const singleCity = res.data.cities.id(cityId)
+            this.setState({ reviews: singleCity.reviews })
+        })
+    }
+
     render() {
         const reviewsList = this.state.reviews.map((review) => {
             return (
@@ -58,7 +66,7 @@ class Cities extends Component {
                                         <Button basic color="green">
                                             Edit
                     </Button>
-                                        <Button basic color="yellow">
+                                        <Button onClick={() => { this.deleteReview(review.id) }} basic color="yellow">
                                             Delete
                     </Button>
                                     </div>
