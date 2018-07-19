@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Grid, Form, Header, Image, Button } from "semantic-ui-react";
+import axios from "axios";
 
 
 
@@ -56,20 +57,20 @@ this.setState({
             <Form.Input
               placeholder="Name"
               name="name"
-              value={name}
+              value={this.state.name}
               onChange={this.onChange}
             />
             <Form.Input
               placeholder="Email"
               name="email"
-              value={email}
+              value={this.state.email}
               onChange={this.onChange}
             />
             <Form.Input
               placeholder="Password"
               name="password"
               type="password"
-              value={password}
+              value={this.state.password}
               onChange={this.onChange}
             />
             <Button content="Submit" />

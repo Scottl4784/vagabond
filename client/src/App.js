@@ -13,19 +13,17 @@ import Reviews from './components/Reviews';
 class App extends Component {
   render() {
     return (
-      <Router>
       <div className="App">
-
-        <Navbar /> 
-        <Switch>
-          <Route exact path="/" component={Splashpage} />
-          <Route exact path="/cities" component={Cities} />
-          <Route exact path="/cities/:cityId/reviews" component={Reviews} />
-          <Profile />
-        </Switch>
+        <Navbar />
+        <Router>
+          <Switch>
+            <Route exact path="/" component={Splashpage} />
+            <Route exact path="/cities" component={Splashpage} />
+            <Route exact path="/cities/:cityId" component={Cities} />
+            <Route exact path="/cities/:cityId/reviews/:reviewId" component={Reviews} />
+          </Switch>
+        </Router>
       </div>
-
-      </Router>
     );
   }
 }

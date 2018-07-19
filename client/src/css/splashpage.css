@@ -2,6 +2,10 @@
   align-content: center;
 }
 
+.ui.menu {
+  margin-bottom: 0;
+}
+
 .city-images {
   color: white;
   height: 100vh;
@@ -27,36 +31,45 @@
 
 .city-images h1:first-child {
   font-size: 4em;
-  padding-top: 2em;
+  padding-top: 1em;
 }
 
+.city-subtitle{
+  display: inline-block;
+  border-bottom: solid;
+  margin: 1.5em 0 0 0;
+  padding: 1rem;
+}
 
 .city-pictures {
-  margin: 15px;
-  display: flex;
-  justify-content: space-around;
-  flex: wrap;
+  margin: auto;
+  /* border: solid; */
+  display:flex;
+  height: 75vh;
+  width: 80vw;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .atlanta {
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
-  width: 400px;
+  width: 25vw;
   height: 300px;
   text-align: center;
-  margin: 0 auto;
-  background-image: url(../images/atl2.jpg);
+  margin:2.2em;
+
 }
 
 .sf {
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
-  width: 400px;
+  width: 25vw;
   height: 300px;
   text-align: center;
-  margin: 0 auto;
+  margin: auto;
   background-image: url(../images/sf1.jpg)
 }
 
@@ -64,10 +77,10 @@
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
-  width: 400px;
+  width: 25vw;
   height: 300px;
   text-align: center;
-  margin: 0 auto;
+  margin:auto;
   background-image: url(../images/ny1.jpg)
 }
 
@@ -75,9 +88,9 @@
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
-  width: 400px;
+  width: 25vw;
   height: 300px;
   text-align: center;
-  margin: 0 auto;
+  margin:auto;
   background-image: url(../images/chi1.jpg)
 }

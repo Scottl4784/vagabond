@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Menu, Segment } from 'semantic-ui-react'
-import {Link, Redirect, Router} from 'react-router-dom'
+import {Link, BrowserRouter as Router} from 'react-router-dom'
 
 class Navbar extends Component {
   state = { activeItem: 'Home', redirectToCities: false }
@@ -19,17 +19,12 @@ class Navbar extends Component {
     }
     console.log(window.location.pathname)
     return (
-      <div>
+      <Router>
         <Menu pointing secondary>
-         
-          <Menu.Item active link name='home' active={activeItem === '/users'} onClick={this.handleItemClick}>
-    
-          </Menu.Item> 
-   
+          <Menu.Item name='home' active={activeItem === 'home'} onClick={this.handleItemClick} />
           <Menu.Item
             name='Cities' active={activeItem === 'Cities'} onClick={this.takeMeToCitiesPage}
           />
-         
           <Menu.Item
             name='friends' active={activeItem === 'friends'} onClick={this.handleItemClick}
           />
@@ -39,7 +34,7 @@ class Navbar extends Component {
             />
           </Menu.Menu>
         </Menu>
-      </div>
+      </Router>
     )
   }
 }

@@ -1,52 +1,38 @@
-import React, { Component } from 'react'
-import axios from 'axios'
-import NewReviewForm from './NewReviewForm';
+import React, { Component } from "react"
+import axios from "axios"
+
 
 class Reviews extends Component {
-    state = {
-        city: [],
-        reviews: []
-    }
+  state = {
+    review: []
+  }
 
-    newReview = (review) => {
-        const newReview = [...this.state.reviews]
-        newReview.push(review)
-        this.setState({ reviews: newReview })
-    }
+  getReview = async () => {
+    const cityId = this.props.match.params.cityId
+    const reviewId = this.props.match.params.reviewId
+    try {
+      let review = await axios.get(`/api/cities/${cityId}/reviews/${reviewId}`)
 
-    getCityAndReviews = async () => {
-        const cityId = this.props.match.params.cityId
-        try {
-            let cities = await axios.get(`/api/cities/${cityId}`)
-            let reviews = await axios.get(`/api/cities/${cityId}/reviews`)
-
-            this.setState({
-                city: cities.data,
-                reviews: reviews.data
-            })
-            console.log(this.state)
-        } catch (err) {
-            console.error(err)
-        }
+      this.setState({
+        review: review.data
+      })
+      console.log(this.state)
+    } catch (err) {
+      console.error(err)
     }
-    componentDidMount() {
-        this.getCityAndReviews()
-    }
-    render() {
-        const reviewsList = this.state.reviews.map((review) => {
-            return (
-                <div key={review.id}>
-                    <h1>{review.title}</h1>
-                </div>
-            )
-        })
-        return (
-            <div>
-                {reviewsList}
-                <NewReviewForm newReview={this.newReview} {...this.props} />
-            </div>
-        );
-    }
+  }
+  componentDidMount() {
+    this.getReview()
+  }
+  render() {
+    return (
+      <div>
+       <h1>{this.state.review.title}</h1>
+       <p>{this.state.review.author}</p>
+       <p>{this.state.review.comment}</p>    
+      </div>
+    )
+  }
 }
 
-export default Reviews;
+export default Reviews
