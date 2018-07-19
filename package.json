@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
+  "name": "vagabond_project",
+=======
   "name": "vagabondproject",
+>>>>>>> cbd05fe4355776b8f7f50a1fb44a11f8032675b7
   "engines": {
     "node": "9.9.0"
   },
