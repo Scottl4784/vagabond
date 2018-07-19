@@ -1,5 +1,6 @@
-
-.card-div{
-  margin: 0 auto;
-  align-content: center;
+.card-container{
+  background-size: contain;
+  height: 100vh;
+  width: auto;
+  background-image: url(../images/piedmontbg.jpg)
 }
