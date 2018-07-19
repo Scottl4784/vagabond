@@ -1,28 +1,32 @@
 import React, { Component } from "react"
 import axios from "axios"
+import { Card } from 'semantic-ui-react'
 
 
 class Reviews extends Component {
   state = {
     review: []
   }
-
   getReview = async () => {
     const cityId = this.props.match.params.cityId
     const reviewId = this.props.match.params.reviewId
+    console.log(reviewId)
     try {
       let review = await axios.get(`/api/cities/${cityId}/reviews/${reviewId}`)
 
       this.setState({
         review: review.data
       })
+    
       console.log(this.state)
     } catch (err) {
       console.error(err)
     }
   }
+  
   componentDidMount() {
     this.getReview()
+    
   }
   render() {
     return (
@@ -30,6 +34,16 @@ class Reviews extends Component {
        <h1>{this.state.review.title}</h1>
        <p>{this.state.review.author}</p>
        <p>{this.state.review.comment}</p>    
+      <div>
+      <Card>
+        <Card.Content header= {this.state.review.title}  />
+        <Card.Content description= {this.state.review.comment}/>
+        <Card.Content extra>
+        {this.state.review.author}
+        </Card.Content>
+      </Card>
+       
+      </div>
       </div>
     )
   }
