@@ -12,7 +12,7 @@ class Splashpage extends Component {
           <h2>We all have a story to tell. </h2>
         </div>
 
-      
+        <h1> Select a city to share your experience </h1>
         <div className='city-pictures'>
           <div className='atlanta'></div>
           <div className='sf'></div>

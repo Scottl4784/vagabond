@@ -14,7 +14,7 @@ class Navbar extends Component {
       <div>
         <Menu pointing secondary>
           <Link to='/'>
-          <Menu.Item name='home' active={activeItem === 'home'} onClick={this.handleItemClick} />
+          <Menu.Item as={Link} to='/cities' name='home' active={activeItem === 'home'} onClick={this.handleItemClick} />
           </Link>
           <Link to='/cities'>
           <Menu.Item
