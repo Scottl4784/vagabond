@@ -1,81 +1,40 @@
-import React, { Component } from "react";
-import { Grid, Form, Header, Image, Button } from "semantic-ui-react";
+import React from 'react'
+import { Card, Icon, Image, Feed } from 'semantic-ui-react'
 
+const src1 ="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=99c6d2880c20cb72f29b5a9eba8ea898&auto=format&fit=crop&w=1350&q=80"
+const Profile = () => (
+  <div>
+      <Card centered>
+    <Image src={src1} />
+    <Card.Content>
+      <Card.Header>Mike Jones</Card.Header>
+      <Card.Meta >
+        <span className='date'>Joined in 2015</span>
+      </Card.Meta>
+      <Card.Description>World Traveler</Card.Description>
+    </Card.Content>
+    <Card.Content extra>
+      <a>
+        <Icon name='user' />
+        22 Posts
+      </a>
+    </Card.Content>
+  </Card>
+  <div>
+  <Feed  >
+    <Feed.Event
+      icon='pencil'
+      date='Today'
+      summary="You posted on your friend Stevie Feliciano's wall."
+    />
 
-const src1 ="https://images.unsplash.com/photo-1510520434124-5bc7e642b61d?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=e6b256ab85181b440dbd72eb4b1c297c&auto=format&fit=crop&w=934&q=80"
+    <Feed.Event>
+      <Feed.Label icon='pencil' />
+      <Feed.Content date='Today' summary="You posted on your friend Stevie Feliciano's wall." />
+    </Feed.Event>
+  </Feed>
+  </div>
+  </div>
+)
 
-class Profile extends Component {
-  state = {
-    name: "",
-    email: "",
-    password: "",
-    submittedName: "",
-    submittedEmail: "",
-    submittedPassword: ""
-  };
-
-  handleChange = (e, { name, value }) => this.setState({ [name]: value });
-
-  handleSubmit = () => {
-    const { name, email, password } = this.state;
-
-    this.setState({
-      submittedName: name,
-      submittedEmail: email,
-      submittedPassword: password
-    });
-  };
-
-  render() {
-    const {
-      name,
-      email,
-      password,
-      submittedName,
-      submittedEmail,
-      submittedPassword
-    } = this.state;
-
-    return (
-      <div className="ui center aligned segment">
-        <div>
-          <Header as='h1' color='teal'>
-            Create Profile
-          </Header>
-          <Image src={src1} size='medium' circular centered />
-            <br />
-        </div>
-        <Grid> 
-            <Grid.Row centered>
-        <Form onSubmit={this.handleSubmit}>
-          <Form.Group>
-            <Form.Input
-              placeholder="Name"
-              name="name"
-              value={name}
-              onChange={this.handleChange}
-            /> 
-            <Form.Input
-              placeholder="Email"
-              name="email"
-              value={email}
-              onChange={this.handleChange}
-            />
-            <Form.Input
-              placeholder="Password"
-              name="password"
-              type="password"
-              value={password}
-              onChange={this.handleChange}
-            />
-            <Button content="Submit" />
-          </Form.Group>
-          
-        </Form></Grid.Row>
-        </Grid>
-      </div>
-    );
-  }
-}
-
-export default Profile;
+export default Profile

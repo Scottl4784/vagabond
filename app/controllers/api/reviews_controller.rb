@@ -1,18 +1,17 @@
 class Api::ReviewsController < ApplicationController
     def index
-        @reviews = Review.all
+        @reviews = City.find(params[:city_id]).reviews
         render json: @reviews
     end
     
     def create
         @city = City.find(params[:city_id])
-        @review = Review.create!(review_params)
+        @review = @city.reviews.create(review_params)
         render json: @review
     end
     
     def show
-        @city = City.find(params[:city_id])
-        @review = Review.find(params[:id])   
+        @review = City.find(params[:city_id]).reviews.find(params[:id]) 
         render json: @review
     end
     
@@ -24,13 +23,14 @@ class Api::ReviewsController < ApplicationController
     end
     
     def destroy
-        @review = Review.find(params[:id]).delete  
-        render status: :ok
+        @review = Review.find(params[:id]).delete 
+        @reviews = Review.all
+        render json: @reviews
     end
     
     private
     
     def review_params
-        params.require(:review).permit(:title, :author, :date, :comment, :city_id, :user_id)
+        params.require(:review).permit(:title, :author, :date, :comment)
     end
 end

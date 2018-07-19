@@ -1,22 +1,48 @@
 import React, { Component } from 'react';
-import logo from '../logo.svg';
+import {Link} from 'react-router-dom'
 import '../css/splashpage.css';
+import axios from 'axios'
 
 class Splashpage extends Component {
+  state = {
+    cities: []
+  }
+
+  getCities = () => {
+    axios.get('/api/cities').then((res) => {
+      this.setState({cities: res.data})
+    })
+    .catch((err) => {
+      console.error(err)
+    })
+  }
+
+  componentDidMount () {
+    this.getCities()
+  }
+
   render() {
+    const citiesList = this.state.cities.map((city) => {
+      return (
+        <div key={city.id}>
+        <Link to={`/cities/${city.id}`}> 
+        <img src={city.image} alt="" className='atlanta'/>
+        </Link>
+        </div>
+      )
+    })
     return (
       <div className="App">
         <div className='city-images'>
-          
+          {/* make this a slideshow of images */}
+          <h1>Welcome to The World's Greatest Travel Review Site</h1>
+          <h2>We all have a story to tell. </h2>
         </div>
-        <h1 className='splash-title'>Welcome to The World's Greatest Travel Review Site</h1>
-        <h2 className='splash-subtitle'>We all have a story to tell. </h2>
-
+        
+      
+          <div className='city-subtitle'><h1>Come Share Your Experience With the World</h1></div>
         <div className='city-pictures'>
-          <div className='atlanta'></div>
-          <div className='sf'></div>
-          <div className='chicago'></div>
-          <div className='ny'></div>
+          {citiesList}
         </div>
       </div>
     );
