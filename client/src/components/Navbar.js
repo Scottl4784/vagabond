@@ -25,17 +25,9 @@ class Navbar extends Component {
         <Menu pointing secondary>
           <Menu.Item as={Link} to="/" active link name='home' active={activeItem === 'home'} onClick={this.handleItemClick}  
           />   
-          {/* <Menu.Item
-            name='Cities' active={activeItem === 'cities'} onClick={this.takeMeToCitiesPage}
-          />       
           <Menu.Item
-            name='Reviews' active={activeItem === 'reviews'} onClick={this.takeMeReviewsPage}
-          />
-          <Menu.Menu position='right'>
-            <Menu.Item
-              name='login' active={activeItem === 'login'} onClick={this.takeMeToLoginPage}
-            /> */}
-          {/* </Menu.Menu> */}
+            name='Back' as={Link} to=".." active={activeItem === 'cities'} onClick={this.handleItemClick}
+          />       
         </Menu>
       </div>
     )
