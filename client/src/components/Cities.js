@@ -41,8 +41,6 @@ class Cities extends Component {
         axios.delete(`/api/cities/${cityId}/reviews/${reviewId}`).then((res) => {
             console.log(res)
             this.setState({ reviews: res.data})
-            // const singleCity = res.data.cities.find((city) => city._id === cityId)
-            // this.setState({ reviews: singleCity.reviews })
         })
     }
 
