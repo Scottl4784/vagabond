@@ -1,106 +1,88 @@
-import React, { Component } from "react";
-import axios from "axios";
-import {
-  Button,
-  Modal,
-  Image,
-  Header,
-  Checkbox,
-  Form,
-  Input,
-  Radio,
-  Select,
-  TextArea
-} from "semantic-ui-react";
+import React, { Component } from 'react';
+import axios from 'axios'
+import styled from 'styled-components'
+
+const Container = styled.div`
+float: right;
+display: flex;
+flex-direction: column;
+border-style: solid;
+padding: 20px;
+align-items: center;
+height: 400px;
+width: 200px;
+margin: 20px;
+background-color: #000000b8;
+border: none;
+color: white;
+text-align: center;
+<h3></h3> {
+    margin: 0 0 15px 0;
+}
+input {
+    text-align: center;
+    width: 175px;
+    height: 20px;
+    margin: 5px 0;
+    border: none;
+}
+textarea {
+    margin: 20px 0;
+    width: 175px;
+    height: 250px;
+    text-align: center;
+    border: none;
+    resize: none;
+}
+`
 
 class NewReviewForm extends Component {
-  handleChange = event => {
-    const inputName = event.target.name;
-    const userInput = event.target.value;
-    console.log(userInput);
-    console.log(this.state);
-    this.setState({
-      [inputName]: userInput
-    });
-  };
-  //pushes state into the DB
-  handleSubmit = event => {
-    event.preventDefault();
-    const cityId = this.props.match.params.cityId;
-    axios.post(`/api/cities/${cityId}/reviews`, this.state).then(res => {
-      this.props.newReview(res.data);
-      console.log(res.data);
-      console.log(this.state);
-    });
-  };
-  // modal for post
-  state = { open: false };
-  show = dimmer => () => this.setState({ dimmer, open: true });
-  close = () => this.setState({ open: false });
-
-  render() {
-    const { open, dimmer } = this.state;
-
-    return (
-      <div>
-        <Button iconc="plus" color="green" onClick={this.show("blurring")}>
-          Add Review
-        </Button>
-
-        <Modal dimmer={dimmer} open={open} onClose={this.close}>
-          <Modal.Header>Create Review</Modal.Header>
-          <Modal.Content image>
-            <Image
-              wrapped
-              size="medium"
-              src="https://images.unsplash.com/photo-1505964862204-b1eff3cc4536?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=338529a2aa8034961dfda34b5970ed9f&auto=format&fit=crop&w=1351&q=80"
-            />
-            <Modal.Description>
-              <Header>
-                {" "}
-                <em>We will love to hear your thoughts...</em>
-              </Header>
-              <Form>
-                <Form.Group widths="equal">
-                  <Form.Field
-                    id="form-input-control-title"
-                    control={Input}
-                    label="Title"
-                    placeholder="Title"
-                    onChange={this.handleChange}
-                  />
-                  <Form.Field
-                    id="form-input-control-last-name"
-                    control={Input}
-                    label="Name"
-                    placeholder="Name"
-                    onChange={this.handleChange}
-                  />
-                </Form.Group>
-                <Form.Field
-                  id="form-textarea-control-comment"
-                  control={Input}
-                  label="Comment"
-                  placeholder="Comment"
-                  onChange={this.handleChange}
-                />
-              </Form>
-            </Modal.Description>
-          </Modal.Content>
-          <Modal.Actions>
-            <Button color="black" onClick={this.close}>
-              Cancel
-            </Button>
-            <Button
-            color="teal" onClick={this.handleSubmit}>
-               Post
-             </Button>
-          </Modal.Actions>
-        </Modal>
-      
-      </div>
-    );
-  }
+   
+    handleChange = (event) => {
+        const inputName = event.target.name
+        const userInput = event.target.value
+        console.log(userInput)
+        console.log(this.state)
+        this.setState({
+            [inputName]: userInput
+        })
+    }
+    //pushes state into the DB
+    handleSubmit = (event) => {
+        event.preventDefault()
+        const cityId = this.props.match.params.cityId
+        axios.post(`/api/cities/${cityId}/reviews`, this.state).then((res) => {
+            this.props.newReview(res.data)
+            console.log(res.data)
+            console.log(this.state)
+        })
+    }
+    
+    render() {
+        return (
+            <Container>
+                <input
+                        placeholder="Title"
+                        type="text"
+                        name="title"
+                        onChange={this.handleChange}
+                    />
+                    <input
+                        placeholder="Author"
+                        type="text"
+                        name="author"
+                        onChange={this.handleChange}
+                    />
+                    <textarea
+                        placeholder="Comment"
+                        type="text"
+                        name="comment"
+                        onChange={this.handleChange}
+                    />
+                    <button onClick={this.handleSubmit}>Post New Review</button>                
+            </Container>
+        );
+    }
 }
 
 export default NewReviewForm;

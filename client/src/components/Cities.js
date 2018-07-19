@@ -1,7 +1,11 @@
-import React, { Component } from "react";
-import axios from "axios";
-import NewReviewForm from "./NewReviewForm";
-import { Header, Card, Button, Confirm } from "semantic-ui-react";
+import React, { Component } from 'react';
+import axios from 'axios'
+import NewReviewForm from './NewReviewForm';
+import { Image, Header, Card, Button } from "semantic-ui-react";
+import styled from 'styled-components'
+
+
+
 
 class Cities extends Component {
   state = {

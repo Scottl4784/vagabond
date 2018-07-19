@@ -1,9 +1,36 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom'
 import '../css/splashpage.css';
+import axios from 'axios'
 
 class Splashpage extends Component {
+  state = {
+    cities: []
+  }
+
+  getCities = () => {
+    axios.get('/api/cities').then((res) => {
+      this.setState({cities: res.data})
+    })
+    .catch((err) => {
+      console.error(err)
+    })
+  }
+
+  componentDidMount () {
+    this.getCities()
+  }
+
   render() {
+    const citiesList = this.state.cities.map((city) => {
+      return (
+        <div key={city.id}>
+        <Link to={`/cities/${city.id}`}> 
+        <img src={city.image} alt="" className='atlanta'/>
+        </Link>
+        </div>
+      )
+    })
     return (
       <div className="App">
         <div className='city-images'>
@@ -14,10 +41,7 @@ class Splashpage extends Component {
 
       
         <div className='city-pictures'>
-          <Link to='/cities/1'><div className='atlanta'></div></Link>
-          <Link to='/cities/4'><div className='sf'></div></Link>
-          <Link to='/cities/2'><div className='chicago'></div></Link>
-          <Link to='/cities/3'><div className='ny'></div></Link>
+          {citiesList}
         </div>
       </div>
     );

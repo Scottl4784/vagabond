@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "name": "vagabond_project",
+=======
+  "name": "vagabondproject",
+>>>>>>> cbd05fe4355776b8f7f50a1fb44a11f8032675b7
   "engines": {
     "node": "9.9.0"
   },
@@ -10,6 +14,7 @@
   },
   "dependencies": {
     "react-router": "^4.3.1",
-    "react-router-dom": "^4.3.1"
+    "react-router-dom": "^4.3.1",
+    "styled-components": "^3.3.3"
   }
 }
