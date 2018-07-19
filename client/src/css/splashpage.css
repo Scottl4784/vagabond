@@ -32,10 +32,12 @@
 
 
 .city-pictures {
-  margin: 15px;
-  display: flex;
+margin: auto;
+  border: solid;
+  width: 90vw;
+  height: auto;
+  display: block;
   justify-content: space-around;
-  flex: wrap;
 }
 
 .atlanta {
