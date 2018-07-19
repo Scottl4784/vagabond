@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import NewReviewForm from "./NewReviewForm";
-import { Image, Header, Card, Button } from "semantic-ui-react";
+import { Header, Card, Button, Confirm } from "semantic-ui-react";
 
 class Cities extends Component {
   state = {
@@ -41,6 +41,10 @@ class Cities extends Component {
       this.setState({ reviews: singleCity.reviews });
     });
   };
+  // State for Button Confirmation
+  state = { open: false };
+  open = () => this.setState({ open: true });
+  close = () => this.setState({ open: false });
 
   render() {
     const reviewsList = this.state.reviews.map(review => {
@@ -63,15 +67,22 @@ class Cities extends Component {
                     <Button basic color="green">
                       Edit
                     </Button>
-                    <Button
+
+                    {/* Delete Button Confirmation */}
+
+                    <Button basic color="yellow" onClick={this.open}>
+                      Delete
+                    </Button>
+                    <Confirm
+                      open={this.state.open}
+                      onCancel={this.close}
                       onClick={() => {
                         this.deleteReview(review.id);
                       }}
-                      basic
-                      color="yellow"
-                    >
-                      Delete
-                    </Button>
+                      onConfirm={this.close}
+                    />
+
+                    {/* Delete Button Confirmation */}
                   </div>
                 </Card.Content>
               </Card>
