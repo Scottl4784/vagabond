@@ -1,24 +1,22 @@
-# README
+## Vagabond Project
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+![Homepage Image]()
 
-Things you may want to cover:
+## Overview
+Vagabond is a travel app that makes it easy for travelers to track and review their favorite cities! Users can sign in and update cities with their recent travel opinions for other travelers to take note!
 
-* Ruby version
+## Link
+[Site to Vagabond](https://frozen-wildwood-19062.herokuapp.com) [Heroku]
 
-* System dependencies
+## Trello Board
+[Trello Link](https://trello.com/b/SiiWmtc6/vagabond-project)
 
-* Configuration
+## Technologies 
+* Languages - HTML, CSS, Rails, Ruby, React
+* Page designed using Semantic UI React
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Developers
+* Scott Lee
+* Erica Shackelford
+* Phillip Hannaford 
+* Adam Ferguson
