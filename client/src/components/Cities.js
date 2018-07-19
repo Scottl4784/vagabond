@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import NewReviewForm from './NewReviewForm';
+
 import { Confirm, Image, Header, Card, Button } from "semantic-ui-react";
 import styled from 'styled-components'
-
 
 
 
@@ -38,6 +38,7 @@ class Cities extends Component {
     newReview.push(review);
     this.setState({ reviews: newReview });
   };
+
 
   deleteReview = (reviewId) => {
     const cityId = this.props.match.params.cityId

@@ -1,42 +1,35 @@
+
 import React, { Component } from "react";
 import axios from "axios";
 import NewReviewForm from "./NewReviewForm";
 import { Reveal, Header, Card, Button } from "semantic-ui-react";
 
+
 class Reviews extends Component {
   state = {
-    city: [],
-    reviews: []
-  };
+    review: [],
+    editReview: true
+  }
 
-  newReview = review => {
-    const newReview = [...this.state.reviews];
-    newReview.push(review);
-    this.setState({ reviews: newReview });
-  };
-
-  getCityAndReviews = async () => {
-    const cityId = this.props.match.params.cityId;
+  getReview = async () => {
+    const cityId = this.props.match.params.cityId
+    const reviewId = this.props.match.params.reviewId
     try {
-      let cities = await axios.get(`/api/cities/${cityId}`);
-      let reviews = await axios.get(`/api/cities/${cityId}/reviews`);
+      let review = await axios.get(`/api/cities/${cityId}/reviews/${reviewId}`)
 
       this.setState({
-        city: cities.data,
-        reviews: reviews.data
-      });
-      console.log(this.state);
+        review: review.data
+      })
+      console.log(this.state)
     } catch (err) {
-      console.error(err);
+      console.error(err)
     }
-  };
+  }
+
   componentDidMount() {
-    this.getCityAndReviews();
+    this.getReview()
   }
   render() {
-    const reviewsList = this.state.reviews.map(review => {
-      return (
-        <div key={review.id}>
           <div>
             <Card.Group centered>
               <Card>
@@ -78,13 +71,6 @@ class Reviews extends Component {
         </div>
       );
     });
-    return (
-      <div>
-        {reviewsList}
-        <NewReviewForm newReview={this.newReview} {...this.props} />
-      </div>
-    );
-  }
-}
-
-export default Reviews;
+    }
+    
+    export default Reviews

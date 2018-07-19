@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-// import logo from './logo.svg';
 import './App.css';
 // eslint-disable-next-line
-import { Link, Switch, BrowserRouter as Router, Route } from 'react-router-dom'
+import { Switch, BrowserRouter as Router, Route } from 'react-router-dom'
 import Splashpage from './components/Splashpage'
 import Navbar from './components/Navbar'
 import 'semantic-ui-css/semantic.min.css'
@@ -20,7 +19,7 @@ class App extends Component {
             <Route exact path="/" component={Splashpage} />
             <Route exact path="/cities" component={Splashpage} />
             <Route exact path="/cities/:cityId" component={Cities} />
-            <Route exact path="/cities/:cityId/reviews" component={Reviews} />
+            <Route exact path="/cities/:cityId/reviews/:reviewId" component={Reviews} />
           </Switch>
         </Router>
       </div>

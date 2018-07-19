@@ -38,8 +38,9 @@ class Splashpage extends Component {
           <h1>Welcome to The World's Greatest Travel Review Site</h1>
           <h2>We all have a story to tell. </h2>
         </div>
-
+        
       
+          <div className='city-subtitle'><h1>Come Share Your Experience With the World</h1></div>
         <div className='city-pictures'>
           {citiesList}
         </div>

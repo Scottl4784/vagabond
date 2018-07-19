@@ -11,13 +11,12 @@ class Api::ReviewsController < ApplicationController
     end
     
     def show
-        @review = City.find(params[:city_id]).reviews 
+        @review = City.find(params[:city_id]).reviews.find(params[:id]) 
         render json: @review
     end
     
     def update
-        @city = City.find(params[:city_id])
-        @review = Review.find(params[:id])
+        @review = City.find(params[:city_id]).reviews.find(params[:id])
         @review.update!(review_params)
         render json: @review
     end
