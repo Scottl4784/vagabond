@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import axios from "axios"
 import { Card } from 'semantic-ui-react'
-
+import '../css/review.css'
 
 class Reviews extends Component {
   state = {
@@ -31,7 +31,7 @@ class Reviews extends Component {
   render() {
     return (
       <div>  
- 
+        <div className='card-container'> 
       <div className='card-div'>
       <Card centered raised color='teal'>
         <Card.Content header= {this.state.review.title}  />
@@ -42,7 +42,7 @@ class Reviews extends Component {
       </Card>
        </div>
       </div>
-
+      </div>
     )
   }
 }
