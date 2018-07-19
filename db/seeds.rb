@@ -34,5 +34,5 @@ sanfran.save
 
 User.create(name: "Mike", email_id: "mike@12.com")
 
-Review.create(title: "Hotlanta", author: User.first.name, city_id: City.first.id, user_id: User.first.id)
+Review.create(title: "Hotlanta", author: User.first.name, city_id: City.first.id, user_id: User.first.id, comment:"Atlanta - Hollywood of the South!")
 
